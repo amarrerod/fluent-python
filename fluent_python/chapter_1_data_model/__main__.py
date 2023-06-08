@@ -37,7 +37,3 @@ def run_card_examples():
     print(f"Deck sorted in order of increasing rank")
     for card in sorted(deck, key=spades_high):
         print(card)
-
-
-def run_vector_examples():
-    pass
