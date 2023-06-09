@@ -3,7 +3,12 @@ from .card_deck import Card, FrenchDeck, spades_high
 from random import choice
 
 
-def run_card_examples():
+def main():
+    delimiter = "=" * 120
+    print(delimiter)
+    print(f"Running Chapter 1 examples")
+    print(delimiter)
+
     beer_card = Card("7", "diamonds")
     print(beer_card)
 
@@ -37,3 +42,7 @@ def run_card_examples():
     print(f"Deck sorted in order of increasing rank")
     for card in sorted(deck, key=spades_high):
         print(card)
+
+
+if __name__ == "__main__":
+    main()

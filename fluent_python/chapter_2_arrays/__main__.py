@@ -99,3 +99,86 @@ def fixed_size(o):
     except TypeError:
         return False
     return True
+
+
+def unpacking_function():
+    r = divmod(20, 8)
+    t = (20, 8)
+    r2 = divmod(*t)
+
+    quotient, remainder = divmod(*t)
+    print(f"Quotient: {quotient}, Remainder: {remainder}")
+
+
+def __function_with_rest_args(a, b, c, d, *rest):
+    print(f"In function.\n -A: {a}, B: {b}, C: {c}, D: {d}, Rest: {rest}")
+    return a, b, c, d, rest
+
+
+def grab_excess():
+    a, b, *rest = range(5)
+    print(f"A: {a}, B: {b}, Rest: {rest}")
+
+    a, b, *rest = range(3)
+    print(f"A: {a}, B: {b}, Rest: {rest}")
+
+    a, b, *rest = range(2)
+    print(f"A: {a}, B: {b}, Rest: {rest}")
+
+    a, *body, c, d = range(5)
+    print(f"A: {a}, Body: {body}, C: {c}, D: {d}")
+
+    *head, b, c, d = range(5)
+    print(f"Head: {head}, B: {b}, C: {c}, D: {d}")
+
+    # A = 1
+    # B = 2
+    # C = 3
+    # D = 4
+    # Rest = (5, 6)
+    result = __function_with_rest_args(*[1, 2], 3, *range(4, 7))
+    print(f"Result is: {result}")
+
+    # * can also be used when defining lists, tuples or set literals
+    t = *range(4), 4
+    l = [*range(4), 4]
+    s = {*range(4), 4, *(5, 6, 7)}
+    print(f"Tuple: {t}, List: {l}, Set: {s}")
+
+
+def nested_unpacking():
+    metro_areas = [
+        ("Tokyo", "JP", 36.933, (35.689722, 139.691667)),
+        ("Delhi NCR", "IN", 21.935, (28.613889, 77.208889)),
+        ("Mexico City", "MX", 20.142, (19.433333, -99.1333333)),
+        ("New York-Newark", "US", 20.104, (40.808611, -74.020386)),
+        ("São Paulo", "BR", 19.649, (-23.547778, -46.635833)),
+    ]
+
+    print(f'{"City":15} | {"latitude":>9} | {"longitude":>9}')
+
+    for name, _, _, (lat, lon) in metro_areas:
+        if lon <= 0:
+            print(f"{name:15} | {lat:>9.4f} | {lon:9.4f}")
+
+
+def main():
+    delimiter = "=" * 120
+    print(delimiter)
+    print(f"Running Chapter 2 examples")
+    print(delimiter)
+
+    list_comprehension()
+    list_comps_vs_mapfilter()
+    cartesian_shirts()
+    cartesian_cards()
+    genexps_examples()
+    tuples_as_records()
+    tuples_as_immutable_lists()
+    unpacking_function()
+    grab_excess()
+    nested_unpacking()
+
+
+if __name__ == "__main__":
+    main()

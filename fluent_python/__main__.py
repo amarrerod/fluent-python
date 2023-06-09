@@ -1,23 +1,9 @@
 """Main module."""
 
 
-from .chapter_1_data_model.__main__ import run_card_examples
-from .chapter_2_arrays.__main__ import (
-    list_comprehension,
-    list_comps_vs_mapfilter,
-    cartesian_shirts,
-    cartesian_cards,
-    genexps_examples,
-    tuples_as_records,
-    tuples_as_immutable_lists,
-)
+from .chapter_1_data_model.__main__ import main as chpt_1_main
+from .chapter_2_arrays.__main__ import main as chpt_2_main
 
 if __name__ == "__main__":
-    run_card_examples()
-    list_comprehension()
-    list_comps_vs_mapfilter()
-    cartesian_shirts()
-    cartesian_cards()
-    genexps_examples()
-    tuples_as_records()
-    tuples_as_immutable_lists()
+    chpt_1_main()
+    chpt_2_main()
