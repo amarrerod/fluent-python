@@ -63,3 +63,39 @@ def genexps_examples():
     # one item at a time. Using genexps would save the cost of building a list just to feed the for loop
     for tshirt in (f"{c} {s}" for c in colors for s in sizes):
         print(tshirt)
+
+
+def tuples_as_records():
+    lax_coordinates = (33.9425, -118.408056)
+    city, year, pop, chg, area = ("Tokyo", 2003, 32_450, 0.66, 8014)
+    traveler_ids = [("USA", "33195855"), ("BRA", "CE342567"), ("ESP", "XDA205856")]
+
+    for passport in sorted(traveler_ids):
+        print("%s/%s" % passport)
+
+    for country, _ in traveler_ids:
+        print(country)
+
+
+def tuples_as_immutable_lists():
+    a = (10, "alpha", [1, 2])
+    b = (10, "alpha", [1, 2])
+
+    r = a == b
+    print(f"Are A: {a} and B: {b} equal?: {r}")
+
+    b[-1].append(99)
+    r = a == b
+    print(f"Are A: {a} and B: {b} equal?: {r}")
+
+
+def fixed_size(o):
+    """
+    Checks whether a tuple only contains immutable values
+    To be hashable, an object value cannot ever change
+    """
+    try:
+        hash(o)
+    except TypeError:
+        return False
+    return True

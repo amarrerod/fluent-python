@@ -8,6 +8,8 @@ from .chapter_2_arrays.__main__ import (
     cartesian_shirts,
     cartesian_cards,
     genexps_examples,
+    tuples_as_records,
+    tuples_as_immutable_lists,
 )
 
 if __name__ == "__main__":
@@ -17,3 +19,5 @@ if __name__ == "__main__":
     cartesian_shirts()
     cartesian_cards()
     genexps_examples()
+    tuples_as_records()
+    tuples_as_immutable_lists()
