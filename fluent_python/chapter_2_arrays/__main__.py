@@ -238,7 +238,8 @@ def main():
     slicing()
     using_add_and_mult_with_seq()
     building_list_of_lists()
-    create_10_million_floats()
+    # Removes this example to save computation time
+    # create_10_million_floats()
     testing_deques()
 
 
