@@ -3,6 +3,7 @@
 from ..chapter_1_data_model.card_deck import FrenchDeck, Card
 import array
 from .pattern_matching import test_robot_matching
+from .array import create_10_million_floats, testing_deques
 
 
 def list_comprehension():
@@ -180,6 +181,42 @@ def nested_destructuring():
                 print(f"{name:15} | {lat:>9.4f} | {long:9.4f}")
 
 
+def slicing():
+    s = "bicycle"
+    print(s[::3])
+    print(s[::-1])
+    print(s[::-2])
+
+    # Asigning to slices
+    l = list(range(10))
+    print(f"Full list: {l}")
+    l[2:5] = [20, 30]
+    print(f"L: {l}")
+    del l[5:7]
+    print(f"Full list after delete {l}")
+    l[3::2] = [11, 22]
+    print(f"{l}")
+
+
+def using_add_and_mult_with_seq():
+    l = [1, 2, 3]
+    print(l * 5)
+    print(5 * "abcd")
+
+
+def building_list_of_lists():
+    board = [["_"] * 3 for i in range(3)]
+    print(board)
+
+    board[1][2] = "X"
+    print(board)
+
+    weird_board = [["_"] * 3] * 3
+    print(weird_board)
+    weird_board[1][2] = "O"
+    print(weird_board)
+
+
 def main():
     delimiter = "=" * 120
     print(delimiter)
@@ -198,6 +235,11 @@ def main():
     nested_unpacking()
     test_robot_matching()
     nested_destructuring()
+    slicing()
+    using_add_and_mult_with_seq()
+    building_list_of_lists()
+    create_10_million_floats()
+    testing_deques()
 
 
 if __name__ == "__main__":
