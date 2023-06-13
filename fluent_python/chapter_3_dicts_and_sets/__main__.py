@@ -1,5 +1,7 @@
 """ Chapter 3 examples"""
 
+from collections import defaultdict
+
 
 def dict_comp():
     dial_codes = [
@@ -69,6 +71,13 @@ def match_extra():
             print(f"Ice cream detailts: {details}")
 
 
+def default_dicts():
+    # default dict of lists
+    dd = defaultdict(list)
+
+    print(f'Default example: {dd["example"]}')
+
+
 def main():
     dict_comp()
     unpacking_mappings()
@@ -87,6 +96,7 @@ def main():
     print(f"Authors are: {r2}")
 
     match_extra()
+    default_dicts()
 
 
 if __name__ == "__main__":

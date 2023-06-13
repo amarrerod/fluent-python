@@ -1,6 +1,7 @@
 import pytest
 
 from fluent_python.chapter_3_dicts_and_sets.__main__ import get_creators
+from fluent_python.chapter_3_dicts_and_sets.str_key_dict import StrKeyDict
 from collections import OrderedDict
 
 
@@ -32,3 +33,13 @@ def test_dict_raises():
         get_creators(r)
 
     assert str(excep.value) == f"Invalid book record: {r!r}"
+
+
+def test_custom_dict():
+    d = StrKeyDict([("2", "two"), ("4", "four")])
+    assert d["2"] == "two"
+    assert d[4] == "four"
+
+    with pytest.raises(KeyError) as excep:
+        d[1]
+    assert str(excep.value) == f"'1'"
