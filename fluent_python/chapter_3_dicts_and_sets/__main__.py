@@ -1,6 +1,7 @@
 """ Chapter 3 examples"""
 
 from collections import defaultdict
+import random
 
 
 def dict_comp():
@@ -78,6 +79,41 @@ def default_dicts():
     print(f'Default example: {dd["example"]}')
 
 
+def dict_views():
+    d = dict(a=10, b=20, c=30)
+
+    print(f"Values of d: {d.values()}")
+    print(f"Len of values: {len(d.values())}")
+    l = list(d.values())
+    print(f"List from the values: {l}")
+    rl = list(reversed(l))
+    print(f"Reversed list from the values: {rl}")
+
+
+def sets():
+    l = ["spam", "spam", "eggs", "spam", "bacon", "eggs"]
+    s = set(l)
+    print(f"The set of l={l} is {s}")
+    # To remove duplicates we can do the following
+    ls = list(set(l))
+    print(f"List without duplicates: {ls}")
+    # To preserve the order
+    ld = list(dict.fromkeys(l).keys())
+    print(f"List preserving the order: {ld}")
+
+
+def needles_and_haystack():
+    n_needles = 1000
+    n_haystack = 10_000_000
+    upper_bound = 100
+    haystack = set(random.randint(0, upper_bound) for _ in range(n_haystack))
+    needles = set(random.randint(0, upper_bound) for _ in range(n_needles))
+
+    found = needles & haystack
+
+    print(f"Found {len(found)} needles in the haystack: {found}")
+
+
 def main():
     dict_comp()
     unpacking_mappings()
@@ -97,6 +133,9 @@ def main():
 
     match_extra()
     default_dicts()
+    dict_views()
+    sets()
+    needles_and_haystack()
 
 
 if __name__ == "__main__":
