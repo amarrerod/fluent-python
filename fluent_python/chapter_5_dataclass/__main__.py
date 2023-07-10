@@ -1,3 +1,5 @@
+from .member import ClubMember, HackerClubMember
+from .db_handler import DBHandler
 from dataclasses import dataclass
 from collections import namedtuple
 import typing
@@ -62,6 +64,19 @@ def city_tuple():
     print(f"A default city is: {default_city}")
 
 
+def member_example():
+    anna = HackerClubMember("Anna Ravenscroft", handle="AnnaRaven")
+    leo = HackerClubMember("Leo Rochael", handle="Leo")
+    # This one raises a ValueError leo2 = HackerClubMember("Leo Rochael")
+
+    print(f"{anna}")
+
+
+def init_vars():
+    handler = DBHandler(10, database="My new database")
+    print(handler)
+
+
 def main():
     moscow_classic = CoordinateClassic(55.76, 37.62)
     moscow_tuple = CoordinateTuple(55.76, 37.62)
@@ -78,6 +93,7 @@ def main():
     print(f"The type hints from typing: {typing.get_type_hints(CoordinateTypedTuple)}")
 
     city_tuple()
+    member_example()
 
 
 if __name__ == "__main__":
