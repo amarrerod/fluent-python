@@ -1,8 +1,18 @@
 from .member import ClubMember, HackerClubMember
 from .db_handler import DBHandler
+from .dublin_core import Resource, ResourceType
+from .pattern_matching_classes import (
+    simple_class_patterns,
+    match_asian_cities,
+    match_asian_countries,
+    match_asian_cities_positional,
+    match_asian_countries_positional,
+    City,
+)
 from dataclasses import dataclass
 from collections import namedtuple
 import typing
+from datetime import date
 
 
 class CoordinateClassic:
@@ -68,13 +78,57 @@ def member_example():
     anna = HackerClubMember("Anna Ravenscroft", handle="AnnaRaven")
     leo = HackerClubMember("Leo Rochael", handle="Leo")
     # This one raises a ValueError leo2 = HackerClubMember("Leo Rochael")
-
+    data = dict(name="Michael", guests=[])
+    michael = HackerClubMember(**data)
     print(f"{anna}")
+    print(f"{michael!r}")
 
 
 def init_vars():
     handler = DBHandler(10, database="My new database")
     print(handler)
+
+
+def test_dublin_core():
+    description = "Improving the design of existing code"
+    book = Resource(
+        "978-0-12-475759-9",
+        "Refactoring, 2nd Edition",
+        ["Martin Fowler", "Kent Beck"],
+        date(2018, 11, 19),
+        ResourceType.BOOK,
+        description,
+        "EN",
+        ["computer programming", "OOP"],
+    )
+    print(book)
+
+
+def test_patterns():
+    simple_class_patterns(2.0)
+    simple_class_patterns({"x": 100})
+    simple_class_patterns(1)
+    simple_class_patterns(["1", 2, (3, 4)])
+    simple_class_patterns("x")
+    simple_class_patterns(set())
+
+    cities = [
+        City("Asia", "Tokyo", "JP"),
+        City("Asia", "Delhi", "IN"),
+        City("North America", "Mexico City", "MX"),
+        City("North America", "New York", "US"),
+        City("South America", "São Paulo", "BR"),
+    ]
+    r = match_asian_cities(cities)
+    print(f"Asian cities: {r!r}")
+    r = match_asian_countries(cities)
+    print(f"Asian Countries: {r!r}")
+
+    r = match_asian_cities_positional(cities)
+    print(f"Asian cities matched by position: {r!r}")
+
+    r = match_asian_countries_positional(cities)
+    print(f"Asian countries matched by position: {r!r}")
 
 
 def main():
@@ -94,6 +148,8 @@ def main():
 
     city_tuple()
     member_example()
+    test_dublin_core()
+    test_patterns()
 
 
 if __name__ == "__main__":
