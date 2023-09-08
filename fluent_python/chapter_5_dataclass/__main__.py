@@ -128,7 +128,7 @@ def test_patterns():
     print(f"Asian cities matched by position: {r!r}")
 
     r = match_asian_countries_positional(cities)
-    print(f"Asian countries matched by position: {r!r}")
+    print(f"Asian countries  matched by position: {r!r}")
 
 
 def main():
