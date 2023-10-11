@@ -8,6 +8,7 @@ from .chapter_4_unicode_vs_bytes.__main__ import main as chpt_4_main
 from .chapter_5_dataclass.__main__ import main as chpt_5_main
 from .chapter_6_objects.__main__ import main as chpt_6_main
 from .chapter_7_functions_as_fc_objects.__main__ import main as chpt_7_main
+from .chapter_8_decorators_closures.__main__ import main as chpt_8_main
 
 if __name__ == "__main__":
     chpt_1_main()
@@ -17,3 +18,4 @@ if __name__ == "__main__":
     chpt_5_main()
     chpt_6_main()
     chpt_7_main()
+    chpt_8_main()
