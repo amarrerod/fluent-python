@@ -7,6 +7,34 @@ from .bingo import Bingo
 from .lotto import Lotto
 from .tombolist import Tombo
 
+from .randompick import RandomPicker
+import random
+from typing import Any, Iterable, TYPE_CHECKING
+
+
+class SimplePicker:
+    def __init__(self, items: Iterable):
+        self._items = list(items)
+        random.shuffle(self._items)
+
+    def pick(self) -> Any:
+        return self._items.pop()
+
+
+def test_isisntance():
+    p = SimplePicker([1])
+    assert isinstance(p, RandomPicker)
+    return True
+
+
+def test_item_type():
+    items = list(range(10))
+    p = SimplePicker(items)
+    item = p.pick()
+    assert item in items
+    assert isinstance(item, int)
+    return True
+
 
 def set_card(self, key, value):
     self._cards[key] = value
@@ -38,6 +66,9 @@ def main():
     print(f"Tombo items: {tombo.inspect()} ")
     print(issubclass(Tombo, Tombola))
     print(isinstance(tombo, Tombola))
+
+    test_isisntance()
+    test_item_type()
 
 
 if __name__ == "__main__":
