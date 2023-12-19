@@ -13,6 +13,7 @@ from .chapter_10_design_patterns.__main__ import main as chpt_10_main
 from .chapter_11_pythonic_object.__main__ import main as chpt_11_main
 from .chapter_12_special_methods_for_seq.__main__ import main as chpt_12_main
 from .chapter_13_interfaces_protocols_abc.__main__ import main as chpt_13_main
+from .chapter_14_inheritance.__main__ import main as chpt_14_main
 
 if __name__ == "__main__":
     chpt_1_main()
@@ -27,3 +28,4 @@ if __name__ == "__main__":
     chpt_11_main()
     chpt_12_main()
     chpt_13_main()
+    chpt_14_main()
