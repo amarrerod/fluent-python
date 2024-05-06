@@ -1,6 +1,5 @@
 """Main module."""
 
-
 from .chapter_1_data_model.__main__ import main as chpt_1_main
 from .chapter_2_arrays.__main__ import main as chpt_2_main
 from .chapter_3_dicts_and_sets.__main__ import main as chpt_3_main
@@ -15,6 +14,7 @@ from .chapter_12_special_methods_for_seq.__main__ import main as chpt_12_main
 from .chapter_13_interfaces_protocols_abc.__main__ import main as chpt_13_main
 from .chapter_14_inheritance.__main__ import main as chpt_14_main
 from .chapter_16_operator_overloading.__main__ import main as chpt_16_main
+from .chapter_17_iterators.__main__ import main as chpt_17_main
 
 if __name__ == "__main__":
     chpt_1_main()
@@ -31,3 +31,4 @@ if __name__ == "__main__":
     chpt_13_main()
     chpt_14_main()
     chpt_16_main()
+    chpt_17_main()
