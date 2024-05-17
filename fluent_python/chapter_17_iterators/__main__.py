@@ -71,6 +71,33 @@ def main():
     ap = aritprog_gen_itertools(0, Decimal(".1"), 0.3)
     print(list(ap))
 
+    # Chain from iterable example
+    text = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
+    r = list(itertools.chain.from_iterable(enumerate(text)))
+    print(r)
+    r = list(itertools.chain(enumerate(text)))
+    print(r)
+
+    rows = itertools.product(text[:3], range(2), repeat=3)
+    for r in rows:
+        print(r)
+
+    combs = itertools.combinations(text[:10], 4)
+    for c in combs:
+        print(c)
+
+    combs = itertools.combinations_with_replacement(text[:10], 4)
+    for c in combs:
+        print(c)
+
+    pairs = itertools.pairwise(text[:10])
+    for c in pairs:
+        print(c)
+
+    permu = itertools.permutations(text[:10])
+    for c in permu:
+        print(c)
+
 
 if __name__ == "__main":
     main()
