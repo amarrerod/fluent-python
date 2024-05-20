@@ -16,6 +16,7 @@ import random
 from fractions import Fraction
 from decimal import Decimal
 import itertools
+from .coroaverager import averager, averager_2, STOP, compute
 
 
 def die():
@@ -94,9 +95,42 @@ def main():
     for c in pairs:
         print(c)
 
-    permu = itertools.permutations(text[:10])
+    permu = itertools.permutations(text[:3])
     for c in permu:
         print(c)
+
+    coro_avg = averager()
+    print(next(coro_avg))  # Priming the coroutine
+    for i in [10, 30, 5]:
+        print(coro_avg.send(i))
+
+    coro_avg = averager_2()
+    next(coro_avg)  # Priming the coroutine
+    for i in [10, 30, 6.5]:
+        # It wont show anything because the coroutine does not yield partial results
+        print(coro_avg.send(i))
+    coro_avg.close()
+
+    coro_avg = averager_2()
+    next(coro_avg)  # Priming the coroutine
+    for i in [10, 30, 6.5]:
+        # It wont show anything because the coroutine does not yield partial results
+        print(coro_avg.send(i))
+
+    try:
+        coro_avg.send(STOP)
+    except StopIteration as exc:
+        result = exc.value
+
+    print(f"The result is: {result}")
+
+    comp = compute()
+    for v in [None, 10, 20, 30, STOP]:
+        try:
+            comp.send(v)
+        except StopIteration as exc:
+            r = exc.value
+    print(f"Result is {r}")
 
 
 if __name__ == "__main":
