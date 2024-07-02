@@ -17,6 +17,7 @@ from .chapter_16_operator_overloading.__main__ import main as chpt_16_main
 from .chapter_17_iterators.__main__ import main as chpt_17_main
 from .chapter_18_context_managers.__main__ import main as chpt_18_main
 from .chapter_19_concurrency_models.__main__ import main as chpt_19_main
+from .chapter_20_concurrent.__main__ import main as chpt_20_main
 
 if __name__ == "__main__":
     chpt_1_main()
@@ -36,3 +37,4 @@ if __name__ == "__main__":
     chpt_17_main()
     chpt_18_main()
     chpt_19_main()
+    chpt_20_main()
